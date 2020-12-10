@@ -215,29 +215,28 @@ function getRectangleString(width, height) {
   const lb = 10;
   const sp = 32;
   let str = '';
-  str +=
-    String.fromCharCode(lth) +
-    String.fromCharCode(w).repeat(width - 2) +
-    String.fromCharCode(rth) +
-    String.fromCharCode(lb);
+  str
+    += String.fromCharCode(lth)
+    + String.fromCharCode(w).repeat(width - 2)
+    + String.fromCharCode(rth)
+    + String.fromCharCode(lb);
   if (height < 3 && width < 3) {
-    str +=
-      String.fromCharCode(lbh) +
-      String.fromCharCode(sp).repeat(width - 2) +
-      String.fromCharCode(rbh) +
-      String.fromCharCode(lb);
+    str
+      += String.fromCharCode(lbh)
+      + String.fromCharCode(sp).repeat(width - 2)
+      + String.fromCharCode(rbh)
+      + String.fromCharCode(lb);
   } else {
-    const m =
-      String.fromCharCode(h) +
-      String.fromCharCode(sp).repeat(width - 2) +
-      String.fromCharCode(h) +
-      String.fromCharCode(lb);
+    const m = String.fromCharCode(h)
+      + String.fromCharCode(sp).repeat(width - 2)
+      + String.fromCharCode(h)
+      + String.fromCharCode(lb);
     str += m.repeat(height - 2);
-    str +=
-      String.fromCharCode(lbh) +
-      String.fromCharCode(w).repeat(width - 2) +
-      String.fromCharCode(rbh) +
-      String.fromCharCode(lb);
+    str
+      += String.fromCharCode(lbh)
+      + String.fromCharCode(w).repeat(width - 2)
+      + String.fromCharCode(rbh)
+      + String.fromCharCode(lb);
   }
   return str;
 }
@@ -264,8 +263,8 @@ function encodeToRot13(str) {
     .map((s) => s.replace(
       /[a-zA-Z]/,
       String.fromCharCode(
-        s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13)
-      )
+        s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13),
+      ),
     ))
     .join('');
 }
@@ -325,13 +324,13 @@ function getCardId(value) {
     '10',
     'J',
     'Q',
-    'K'
+    'K',
   ];
   const suits = [
     String.fromCharCode(9827),
     String.fromCharCode(9830),
     String.fromCharCode(9829),
-    String.fromCharCode(9824)
+    String.fromCharCode(9824),
   ];
   const arr = [];
   for (let i = 0; i < suits.length; i += 1) {
@@ -357,5 +356,5 @@ module.exports = {
   getRectangleString,
   encodeToRot13,
   isString,
-  getCardId
+  getCardId,
 };

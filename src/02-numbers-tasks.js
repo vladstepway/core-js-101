@@ -108,8 +108,8 @@ function getLinearEquationRoot(a, b) {
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
   return Math.acos(
-    (x1 * x2 + y1 * y2) /
-      Math.sqrt(Math.abs(x1 ** 2 + y1 ** 2) * Math.abs(x2 ** 2) + y2 ** 2)
+    (x1 * x2 + y1 * y2)
+      / Math.sqrt(Math.abs(x1 ** 2 + y1 ** 2) * Math.abs(x2 ** 2) + y2 ** 2),
   );
 }
 
@@ -179,9 +179,9 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  return num > 4999 ?
-    Math.round(num / 10 ** pow) * 10 ** pow :
-    num - (num % (10 ** pow));
+  return num > 4999
+    ? Math.round(num / 10 ** pow) * 10 ** pow
+    : num - (num % (10 ** pow));
 }
 
 /**
@@ -244,5 +244,5 @@ module.exports = {
   getParallelipidedDiagonal,
   roundToPowerOfTen,
   isPrime,
-  toNumber
+  toNumber,
 };

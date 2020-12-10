@@ -237,13 +237,7 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-  return arr.map((el, i, array) => {
-    if (i > 0) {
-      array[i] += array[i - 1];
-      return array[i];
-    }
-    return el;
-  });
+  return arr.map((el, index, a) => a.slice(0, index + 1).reduce((sum, cur) => sum + cur));
 }
 
 /**
@@ -342,7 +336,7 @@ function sortDigitNamesByNumericOrder(arr) {
     six: 6,
     seven: 7,
     eight: 8,
-    nine: 9
+    nine: 9,
   };
   return arr.sort((a, b) => numbers[a] - numbers[b]);
 }
@@ -613,9 +607,9 @@ function swapHeadAndTail(arr) {
   const rightArr = arr.slice(mid);
   const leftArr = isEven ? arr.slice(0, mid) : arr.slice(0, mid - 1);
 
-  return isEven ?
-    [...rightArr, ...leftArr] :
-    [...rightArr, arr[mid - 1], ...leftArr];
+  return isEven
+    ? [...rightArr, ...leftArr]
+    : [...rightArr, arr[mid - 1], ...leftArr];
 }
 
 
@@ -650,5 +644,5 @@ module.exports = {
   group,
   selectMany,
   getElementByIndexes,
-  swapHeadAndTail
+  swapHeadAndTail,
 };

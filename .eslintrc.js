@@ -14,8 +14,5 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
-    'operator-linebreak': ['error', 'after'],
-    'comma-dangle': ['error', 'never'],
-    'no-param-reassign': ['error', { props: false }],
   },
 };

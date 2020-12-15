@@ -145,14 +145,6 @@ function doRectanglesOverlap(r1, r2) {
   const r2x2 = r2.left + r2.width;
   const r2y2 = r2.top + r2.height;
 
-  console.log(
-    'first',
-    `(${r1x1} ${r1y1}) (${r1x2} ${r1y1}) (${r1x2} ${r1y2}) (${r1x1} ${r1y2})`,
-  );
-  console.log(
-    'second',
-    `(${r2x1} ${r2y1}) (${r2x2} ${r2y1}) (${r2x2} ${r2y2}) (${r2x1} ${r2y2})`,
-  );
   return !(r1x2 < r2x1 || r1x1 > r2x2 || r1y2 < r2y1 || r1y1 > r2y2);
 }
 
